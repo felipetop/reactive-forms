@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { compareStringValidator } from 'src/app/validators/passwordMatchValidator';
 import { passwordValidator } from 'src/app/validators/passwordValidator';
 
 @Component({
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
       estadoCivil: ['', Validators.required],
       cnpj: [{ value: '', disabled: true }, [Validators.required, Validators.pattern(/^\d{14}$/)]],
       senha: ['', [Validators.required, passwordValidator()]],
-    });
+      confirmarSenha: ['', Validators.required],
+    }, { validators: compareStringValidator('senha', 'confirmarSenha') });
   }
 
   public ngOnInit(): void {

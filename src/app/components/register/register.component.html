@@ -63,6 +63,19 @@
                 <small *ngIf="form.get('senha')?.errors?.['required']">Senha é obrigatória.</small>
             </app-form-field>
 
+            <div>
+                <app-form-field
+                    [form]="form"
+                    controlName="confirmarSenha"
+                    label="Confirmar Senha"
+                    id="confirmarSenha"
+                    type="password">
+                    <small *ngIf="form.get('confirmarSenha')?.errors?.['required']">Confirmação de senha é obrigatória.</small>
+                    </app-form-field>
+
+                
+            </div>
+
             <div class="password-requirements mb-3">
                 <div>
                     <span class="indicator" [class.valid]="!form.get('senha')?.errors?.['minlength']"></span> Pelo menos 8 caracteres
@@ -75,6 +88,9 @@
                 </div>
                 <div>
                     <span class="indicator" [class.valid]="!form.get('senha')?.errors?.['numeric']"></span> Pelo menos um número
+                </div>
+                <div>
+                    <span class="indicator" [class.valid]="!form.errors?.['stringMismatch']"></span> Senhas coincidem
                 </div>
             </div>
         </div>
