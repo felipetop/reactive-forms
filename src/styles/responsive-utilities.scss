@@ -1,0 +1,19 @@
+// Definindo variáveis para breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1440px;
+
+// Mixin para "up" (acima de determinado breakpoint)
+@mixin layoutUp($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Mixin para "down" (abaixo de determinado breakpoint)
+@mixin layoutDown($breakpoint) {
+    @media (max-width: calc(#{$breakpoint} - 1px)) {
+      @content;
+    }
+}
