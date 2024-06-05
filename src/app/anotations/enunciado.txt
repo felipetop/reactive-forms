@@ -51,5 +51,23 @@ Ideal para formulários complexos.
 Quando você deseja reduzir a verbosidade do código e aumentar a legibilidade.
 Facilita a criação e gerenciamento de formulários dinâmicos.
 
+______________________________________________________
 
+Estrutura do html
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="nome">Nome</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nome" 
+        formControlName="nome" 
+        [ngClass]="{'is-invalid': form.get('nome')?.invalid && form.get('nome')?.touched}">
+      <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="invalid-feedback">
+        Nome é obrigatório.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
 
