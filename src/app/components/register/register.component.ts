@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onChanges(): void {
+  private onChanges(): void {
     this.form.get('tipoPessoa')?.valueChanges.subscribe(val => {
       if (val === 'Física') {
         this.form.get('cpf')?.enable();
@@ -58,7 +58,4 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
-
-
-
 }
