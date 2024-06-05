@@ -1,0 +1,21 @@
+Conheça Pedrinho!
+
+Pedrinho é um desenvolvedor que está aprendendo a criar formulários dinâmicos usando Reactive Forms no Angular. Ele precisa criar um formulário de cadastro que inclua:
+
+Tipo de Pessoa (Física ou Jurídica)
+Nome
+Email
+CPF (para Pessoa Física)
+CNPJ (para Pessoa Jurídica)
+Estado Civil (para Pessoa Física)
+Senha com regras de validação específicas:
+Pelo menos 8 caracteres
+Pelo menos uma letra maiúscula
+Pelo menos uma letra minúscula
+Pelo menos um número
+Confirmação de Senha que deve coincidir com a senha
+Desafio:
+
+Pedrinho quer garantir que o formulário seja fácil de usar e intuitivo. Para isso, ele quer que os campos inválidos sejam destacados em vermelho quando o usuário tentar submeter o formulário sem preencher todos os campos corretamente.
+
+Vamos ajudar o Pedrinho a criar esse formulário passo a passo!
