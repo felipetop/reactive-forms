@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="reactive-form">
+            <div class="form-group mb-3">
+                <label for="tipoPessoa">Tipo de Pessoa</label>
+                <select id="tipoPessoa" class="form-control" formControlName="tipoPessoa">
+                <option *ngFor="let tipo of personType" [value]="tipo">{{ tipo }}</option>
+                </select>
+            </div>
+      
+            <app-form-field
+                [form]="form"
+                controlName="nome"
+                label="Nome"
+                id="nome">
+                <small *ngIf="form.get('nome')?.errors?.['required']">Nome é obrigatório.</small>
+            </app-form-field>
+        
+            <app-form-field
+                [form]="form"
+                controlName="email"
+                label="Email"
+                id="email"
+                type="email">
+                <small *ngIf="form.get('email')?.errors?.['required']">Email é obrigatório.</small>
+                <small *ngIf="form.get('email')?.errors?.['email']">Email inválido.</small>
+            </app-form-field>
+        
+            <app-form-field
+                [form]="form"
+                controlName="cpf"
+                label="CPF"
+                id="cpf">
+                <small *ngIf="form.get('cpf')?.errors?.['required']">CPF é obrigatório.</small>
+                <small *ngIf="form.get('cpf')?.errors?.['pattern']">CPF deve ter 11 dígitos.</small>
+            </app-form-field>
+
+            <div class="form-group mb-3">
+                <label for="estadoCivil">Estado Civil</label>
+                <select id="estadoCivil" class="form-control" formControlName="estadoCivil">
+                  <option *ngFor="let estado of estadosCivis" [value]="estado">{{ estado }}</option>
+                </select>
+                <div *ngIf="form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.dirty" class="invalid-feedback">
+                  <small *ngIf="form.get('estadoCivil')?.errors?.['required']">Estado civil é obrigatório.</small>
+                </div>
+            </div>
+        
+            <app-form-field
+                [form]="form"
+                controlName="cnpj"
+                label="CNPJ"
+                id="cnpj">
+                <small *ngIf="form.get('cnpj')?.errors?.['required']">CNPJ é obrigatório.</small>
+                <small *ngIf="form.get('cnpj')?.errors?.['pattern']">CNPJ deve ter 14 dígitos.</small>
+            </app-form-field>
+          </div>
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="form.invalid">Cadastrar</button>
+    </form>
+  </div>
+  

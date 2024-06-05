@@ -1,0 +1,13 @@
+<div class="form-group mb-3" [formGroup]="form">
+    <label [for]="id">{{ label }}</label>
+    <input 
+      [type]="type" 
+      class="form-control" 
+      [id]="id" 
+      [formControlName]="controlName" 
+      [ngClass]="{ 'is-invalid': control?.invalid && control?.dirty }">
+    <div *ngIf="control?.invalid && control?.dirty" class="invalid-feedback">
+      <ng-content></ng-content>
+    </div>
+</div>
+  
