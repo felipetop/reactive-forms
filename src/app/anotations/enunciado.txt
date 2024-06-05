@@ -19,3 +19,37 @@ Desafio:
 Pedrinho quer garantir que o formulário seja fácil de usar e intuitivo. Para isso, ele quer que os campos inválidos sejam destacados em vermelho quando o usuário tentar submeter o formulário sem preencher todos os campos corretamente.
 
 Vamos ajudar o Pedrinho a criar esse formulário passo a passo!
+
+formas de declarar o reactive forms:
+
+forma 1:
+
+this.form = new FormGroup({
+    nome: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    senha: new FormControl('', Validators.required),
+    confirmarSenha: new FormControl('', Validators.required)
+});
+
+forma 2:
+this.form = this.formBuilder.group({
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', Validators.required],
+      confirmarSenha: ['', Validators.required]
+});
+
+Quando Usar Cada Um:
+
+FormGroup diretamente:
+
+Útil para formulários simples.
+Quando você deseja ter controle total sobre a criação e gerenciamento dos controles.
+FormBuilder:
+
+Ideal para formulários complexos.
+Quando você deseja reduzir a verbosidade do código e aumentar a legibilidade.
+Facilita a criação e gerenciamento de formulários dinâmicos.
+
+
+
