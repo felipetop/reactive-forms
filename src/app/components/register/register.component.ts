@@ -15,6 +15,10 @@ export class RegisterComponent implements OnInit {
   estadosCivis: string[] = ['Solteiro', 'Casado', 'Divorciado', 'Viúvo']
 
   constructor(private formBuilder: FormBuilder) {
+    this.initForm();
+  }
+
+  public initForm(): void {
     this.form = this.formBuilder.group({
       tipoPessoa: ['Física', Validators.required],
       nome: ['', Validators.required],
