@@ -53,7 +53,32 @@
                 <small *ngIf="form.get('cnpj')?.errors?.['required']">CNPJ é obrigatório.</small>
                 <small *ngIf="form.get('cnpj')?.errors?.['pattern']">CNPJ deve ter 14 dígitos.</small>
             </app-form-field>
-          </div>
+
+            <app-form-field
+                [form]="form"
+                controlName="senha"
+                label="Senha"
+                id="senha"
+                type="password">
+                <small *ngIf="form.get('senha')?.errors?.['required']">Senha é obrigatória.</small>
+            </app-form-field>
+
+            <div class="password-requirements mb-3">
+                <div>
+                    <span class="indicator" [class.valid]="!form.get('senha')?.errors?.['minlength']"></span> Pelo menos 8 caracteres
+                </div>
+                <div>
+                    <span class="indicator" [class.valid]="!form.get('senha')?.errors?.['uppercase']"></span> Pelo menos uma letra maiúscula
+                </div>
+                <div>
+                    <span class="indicator" [class.valid]="!form.get('senha')?.errors?.['lowercase']"></span> Pelo menos uma letra minúscula
+                </div>
+                <div>
+                    <span class="indicator" [class.valid]="!form.get('senha')?.errors?.['numeric']"></span> Pelo menos um número
+                </div>
+            </div>
+        </div>
+
         <button type="submit" class="btn btn-primary mt-3" [disabled]="form.invalid">Cadastrar</button>
     </form>
   </div>

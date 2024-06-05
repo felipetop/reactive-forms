@@ -3,3 +3,28 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
 }
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    margin-right: 5px;
+  }
+  
+  .indicator.valid {
+    background-color: green;
+  }
+  
+  .password-requirements {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .password-requirements div {
+    display: flex;
+    align-items: center;
+  }
+  

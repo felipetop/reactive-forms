@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { passwordValidator } from 'src/app/validators/passwordValidator';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
       estadoCivil: ['', Validators.required],
-      cnpj: [{ value: '', disabled: true }, [Validators.required, Validators.pattern(/^\d{14}$/)]]
+      cnpj: [{ value: '', disabled: true }, [Validators.required, Validators.pattern(/^\d{14}$/)]],
+      senha: ['', [Validators.required, passwordValidator()]],
     });
   }
 
