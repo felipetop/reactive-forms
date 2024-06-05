@@ -10,9 +10,9 @@ import { passwordValidator } from 'src/app/validators/passwordValidator';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup;
-  personType = ['Física', 'Jurídica'];
-  estadosCivis: string[] = ['Solteiro', 'Casado', 'Divorciado', 'Viúvo']
+  public form!: FormGroup;
+  public personType = ['Física', 'Jurídica'];
+  public estadosCivis: string[] = ['Solteiro', 'Casado', 'Divorciado', 'Viúvo']
 
   constructor(private formBuilder: FormBuilder) {
     this.initForm();
