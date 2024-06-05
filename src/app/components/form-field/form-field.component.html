@@ -5,7 +5,7 @@
       class="form-control" 
       [id]="id" 
       [formControlName]="controlName" 
-      [ngClass]="{ 'is-invalid': control?.invalid && control?.dirty }">
+      [ngClass]="{ 'is-invalid': control?.invalid && (control?.dirty || control?.touched) }">
     <div *ngIf="control?.invalid && control?.dirty" class="invalid-feedback">
       <ng-content></ng-content>
     </div>

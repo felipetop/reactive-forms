@@ -40,7 +40,7 @@
                 <select id="estadoCivil" class="form-control" formControlName="estadoCivil">
                   <option *ngFor="let estado of estadosCivis" [value]="estado">{{ estado }}</option>
                 </select>
-                <div *ngIf="form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.dirty" class="invalid-feedback">
+                <div *ngIf="form.get('estadoCivil')?.invalid && (form.get('estadoCivil')?.dirty)" class="invalid-feedback">
                   <small *ngIf="form.get('estadoCivil')?.errors?.['required']">Estado civil é obrigatório.</small>
                 </div>
             </div>
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3" [disabled]="form.invalid">Cadastrar</button>
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="false">Cadastrar</button>
     </form>
   </div>
   

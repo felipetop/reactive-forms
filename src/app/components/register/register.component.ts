@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
-      estadoCivil: ['', Validators.required],
+      estadoCivil: ['Solteiro', Validators.required],
       cnpj: [{ value: '', disabled: true }, [Validators.required, Validators.pattern(/^\d{14}$/)]],
       senha: ['', [Validators.required, passwordValidator()]],
       confirmarSenha: ['', Validators.required],
@@ -32,7 +32,13 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    
+    if(this.form.valid) {
+      alert('Formulário enviado com sucesso!');
+    } else {
+      alert('Formulário inválido!');
+      this.form.markAllAsTouched();
+      this.form.updateValueAndValidity();
+    }
   }
 
   onChanges(): void {
@@ -40,6 +46,7 @@ export class RegisterComponent implements OnInit {
       if (val === 'Física') {
         this.form.get('cpf')?.enable();
         this.form.get('estadoCivil')?.enable();
+        this.form.get('estadoCivil')?.setValue('Solteiro')
         this.form.get('cnpj')?.disable();
         this.form.get('cnpj')?.reset();
       } else if (val === 'Jurídica') {
